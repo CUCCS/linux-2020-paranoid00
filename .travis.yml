@@ -1,0 +1,41 @@
+language: bash
+
+
+before_install:
+  - sudo apt-get update && sudo apt-get install -y shellcheck
+  - sudo apt-get install imagemagick
+
+script:
+        - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/worldcupplayerinfo.tsv"
+        - wget "https://c4pr1c3.gitee.io/linuxsysadmin/exp/chap0x04/web_log.tsv.7z"
+        - 7z x -ot web_log.tsv.7z
+        - ls -l
+        - bash task1.sh h
+        - bash task1.sh q 1
+        - bash task1.sh r 50%
+        - bash task1.sh w "finish"
+        - bash task1.sh re1 4 
+        - bash task1.sh re2 4
+        - bash task1.sh c
+        - shellcheck task1.sh
+        - echo "=============================="
+        - bash task2.sh h
+        - bash task2.sh s
+        - bash task2.sh p
+        - bash task2.sh n
+        - bash task2.sh a
+        - shellcheck task2.sh
+        - echo "=============================="
+        - bash task3.sh h
+        - bash task3.sh o
+        - bash task3.sh i
+        - bash task3.sh u
+        - bash task3.sh cp
+        - bash task3.sh xu
+        - bash task3.sh s /
+        - shellcheck task3.sh
+
+notifications:
+  email:
+    on_success: never
+
